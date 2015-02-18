@@ -25,8 +25,8 @@ $(document).ready(function(){
     $('.name').text(newAccount.name);
     $('.balance').text(newAccount.balance.toFixed(2));
     $('#initial_deposit').val("");
-    $('#create').toggle("slide", 125);
-    $('#manage').toggle("slide", 125);
+    $('#create').toggle("slide", 325).dequeue().fadeOut(325);
+    $('#manage').toggle("slide", 325).dequeue().hide().fadeIn(500);
   });
 
   $('form#account_management').submit(function() {
