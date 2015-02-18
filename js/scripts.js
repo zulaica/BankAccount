@@ -24,11 +24,9 @@ $(document).ready(function(){
 
     $('.name').text(newAccount.name);
     $('.balance').text(newAccount.balance.toFixed(2));
-    $('#initial_deposit').val(0);
-    $('#create').hide();
-    $('#manage').show();
-    $('#results').show();
-
+    $('#initial_deposit').val("");
+    $('#create').toggle("slide", 125);
+    $('#manage').toggle("slide", 125);
   });
 
   $('form#account_management').submit(function() {
@@ -39,12 +37,25 @@ $(document).ready(function(){
     isNaN(depositInput) ? depositInput = 0 : depositInput = depositInput;
     isNaN(withdrawInput) ? withdrawInput = 0 : withdrawInput = withdrawInput;
 
+    var currentBalance = newAccount.balance;
+
     newAccount.deposit(depositInput);
     newAccount.withdraw(withdrawInput);
 
+    if (currentBalance < newAccount.balance) {
+      var balanceColor = "#45a742";
+    } else {
+      var balanceColor = "red";
+    }
+
     $('.balance').text(newAccount.balance.toFixed(2));
-    $('#deposit').val(0);
-    $('#withdraw').val(0);
-    $('#results').show();
+    $('.balance').animate({
+      color: balanceColor,
+    }, 62.5 );
+    $('.balance').animate({
+      color: "black",
+    }, 825 );
+    $('#deposit').val("");
+    $('#withdraw').val("");
   });
 });
