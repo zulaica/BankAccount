@@ -1,14 +1,54 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Bank Account</title>
+    <title>Totally Legit Bank, Inc.</title>
     <link rel="stylesheet" href="css/bootstrap.css" media="screen" title="no title" charset="utf-8">
     <link rel="stylesheet" href="css/styles.css" media="screen" title="no title" charset="utf-8">
     <script src="js/jquery-1.11.2.js"></script>
     <script src="js/scripts.js"></script>
   </head>
   <body>
+    <div class="jumbotron">
+      <div class="container">
+        <h1>Totally Legit Bank, Inc.</h1>
+        <h2 style="font-style: italic;">"We don't sell ink."</h2>
+      </div>
+    </div>
+
     <div class="container">
+      <div class="col-md-12" id="create">
+        <form id="create_account">
+          <p>Sign up for a bank account</p>
+          <div class="form-group">
+            <label for="name">Your name</label>
+            <input id="name" type="text" class="form-control">
+          </div>
+          <div class="form-group">
+            <label for="initial_deposit">Initial deposit</label>
+            <input id="initial_deposit" type="number" value="0" step=".01" min="0" class="form-control">
+          </div>
+          <button type="submit" class="btn btn-primary">Create bank account</button>
+        </form>
+      </div>
+
+      <div id="results" class="col-md-12">
+        <h3>Hello, <span class="name"></span>! Your account balance is $<span class="balance"></span>.</h3>
+      </div>
+
+      <div class="col-md-12" id="manage">
+        <form id="account_management">
+          <p>Deposit or withdraw money:</p>
+          <div class="form-group">
+            <label for="deposit">Deposit amount</label>
+            <input type="number" id="deposit" value="0" step=".01" min="0" class="form-control">
+          </div>
+          <div class="form-group">
+            <label for="withdraw">Withdraw amount</label>
+            <input type="number" id="withdraw" value="0" step=".01" min="0" class="form-control">
+          </div>
+          <button type="submit" class="btn btn-warning">Submit</button>
+        </form>
+      </div>
 
     </div>
   </body>
